@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
 import CardPokemon from "./components/CardPokemon";
-import { armarListPokemon, pokedexApi } from "./helpers/pokedexApi";
+
+import { pokedexApi } from "./helpers/pokedexApi";
 
 export const App = () => {
-  let listPokemon = armarListPokemon();
-  const [pokedex, setPokemondex] = useState(listPokemon);
+  const [pokedex, setPokedex] = useState({
+    loading: true,
+    datos: [],
+  });
 
   useEffect(() => {
-    setPokemondex(listPokemon);
+    // obtenerPokemones();
+    pokedexApi().then((respuesta) => {
+      setPokedex({
+        loading: false,
+        datos: respuesta,
+      });
+    });
   }, []);
 
   return (
@@ -17,7 +26,11 @@ export const App = () => {
           <h1>Pokedex</h1>
         </div>
       </div>
-      <CardPokemon pokedex={pokedex} />
+      {pokedex.loading ? (
+        <h3>Cargando...</h3>
+      ) : (
+        <CardPokemon pokedex={pokedex.datos} />
+      )}
     </div>
   );
 };

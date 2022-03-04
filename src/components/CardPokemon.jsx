@@ -1,45 +1,38 @@
 import React from "react";
 
-function CardPokemon(props) {
-  const { pokedex } = props;
+function CardPokemon({ pokedex }) {
+  console.log(pokedex);
 
-    const { id, name } = pokedex;
-    
-    console.log(props)
+  const indiceImagen = (index) => {
+    if (index < 9) {
+      return "00" + (index + 1);
+    } else if (index < 99) {
+      return "0" + (index + 1);
+    } else {
+      return index + 1;
+    }
+ 
+  };
   return (
     <div>
       <div className="row row-cols-1 row-cols-md-6 g-4">
-        {pokedex.map((pokemon) => (
-          <div className="col" key={pokemon.id}>
-            <div className="card">
+        {pokedex.map((pokemon, index) => (
+          <div className="col" key={index}>
+            <div className="card h-100">
               <img
-                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.id}.png`}
+                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${indiceImagen(
+                  index
+                )}.png`}
                 className="card-img-top"
                 alt={pokemon.name}
               />
               <div className="card-body">
-                <h5 className="card-title">
-                  {pokemon.id} - {pokemon.name}
-                </h5>
+                        <p className="card-title">#{indiceImagen(index)} - {pokemon.name}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
-      {/* <div className="row row-cols-1 row-cols-md-6 g-4">
-          {pokedex.map((pokemon) => (    
-              
-        <div className="col" key={pokemon.id}>
-          <div className="card">
-            <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.id}.png`} className="card-img-top" alt={pokemon.name} />
-            <div className="card-body">
-              <h5 className="card-title">{pokemon.id} - {pokemon.name}</h5>
-              
-            </div>
-          </div>
-        </div>
-              ))}
-    </div> */}
     </div>
   );
 }
