@@ -3,10 +3,10 @@ import CardPokemon from "./components/CardPokemon";
 import { armarListPokemon, pokedexApi } from "./helpers/pokedexApi";
 
 export const App = () => {
-  const [pokedex, setPokemondex] = useState([]);
+  let listPokemon = armarListPokemon();
+  const [pokedex, setPokemondex] = useState(listPokemon);
 
   useEffect(() => {
-    let listPokemon = armarListPokemon();
     setPokemondex(listPokemon);
   }, []);
 
