@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { pokedexApi } from "../helpers/pokedexApi";
 
+
 function CardPokemon({ ubicacion, datos }) {
   // const { ubicacion, datos} = generacion
   console.log(ubicacion);
@@ -41,16 +42,16 @@ function CardPokemon({ ubicacion, datos }) {
   };
   return (
     <div>
-      <div className="row row-cols-1 row-cols-md-6 g-4">
+      <div className="row row-cols-1 row-cols-md-6 g-4 ">
         {pokedex.datos.map((pokemon, index) => (
-          <div className="col" key={index}>
-            <div className="card h-100 border border-secondary ">
+          <div className="col "  key={index}>
+            <div className="card h-100  border border-secondary ">
               <img
                 src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${indiceImagen(
                   datos[ubicacion - 1],
                   index
                 )}.png`}
-                className="card-img-top "
+                className="card-img-top pokemon "
                 alt={pokemon.name}
               />
               <div className="card-body">

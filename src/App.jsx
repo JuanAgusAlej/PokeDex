@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardPokemon from "./components/CardPokemon";
-// import "./css/style.css";
+
 
 import { pokedexApi } from "./helpers/pokedexApi";
 
@@ -72,7 +72,7 @@ export const App = () => {
 
   return (
     <div className="container">
-      <div className="row ">
+      <div className="row sticky-top bg-light text-dark ">
         <div className="col-12 col-md-6 offset-md-2 d-flex my-4">
           <h1 className="mx-5">Pokedex</h1>
           <select
