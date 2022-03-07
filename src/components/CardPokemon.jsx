@@ -4,7 +4,7 @@ import { pokedexApi } from "../helpers/pokedexApi";
 
 function CardPokemon({ ubicacion, datos }) {
   // const { ubicacion, datos} = generacion
-  console.log(ubicacion);
+  //console.log(ubicacion);
   const [pokedex, setPokedex] = useState({
     loading: true,
     datos: [],
@@ -13,7 +13,7 @@ function CardPokemon({ ubicacion, datos }) {
   useEffect(() => {
     let empieza;
     let termina;
-    if (ubicacion == 1) {
+    if (ubicacion === 1) {
       empieza = 1;
       termina = 151;
     } else {
@@ -27,9 +27,9 @@ function CardPokemon({ ubicacion, datos }) {
         datos: respuesta,
       });
     });
-  }, []);
+  }, [pokedex]);
 
-  console.log(pokedex);
+  //console.log(pokedex);
   const indiceImagen = (index, sum) => {
     index += sum;
     if (index < 9) {

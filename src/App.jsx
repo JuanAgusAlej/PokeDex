@@ -1,18 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import CardPokemon from "./components/CardPokemon";
 
 
-import { pokedexApi } from "./helpers/pokedexApi";
 
 export const App = () => {
   const [generacion, setGeneracion] = useState({
     ubicacion: 0,
     datos: [null,151,251,386,493,649,721,809,898],
   });
-  const [pokedex, setPokedex] = useState({
-    loading: true,
-    datos: [],
-  });
+  
 
   const options = [
     {value: 0, label: 'Elige una opcion'},
@@ -27,30 +23,30 @@ export const App = () => {
 
   ]
 
-  let primeraGeneracionFin = 151;
-  let segundaaGeneracionFin = 251;
-  let terceraGeneracionFin = 386;
-  let cuartaGeneracionFin = 493;
-  let quintaGeneracionFin = 649;
-  let sextaGeneracionFin = 721;
-  let septimaGeneracionFin = 809;
-  let octavaGeneracionFin = 898;
+  // let primeraGeneracionFin = 151;
+  // let segundaaGeneracionFin = 251;
+  // let terceraGeneracionFin = 386;
+  // let cuartaGeneracionFin = 493;
+  // let quintaGeneracionFin = 649;
+  // let sextaGeneracionFin = 721;
+  // let septimaGeneracionFin = 809;
+  // let octavaGeneracionFin = 898;
 
-  useEffect(() => {
-    // obtenerPokemones();
-    pokedexApi(
-      segundaaGeneracionFin,
-      terceraGeneracionFin - segundaaGeneracionFin
-    ).then((respuesta) => {
-      setPokedex({
-        loading: false,
-        datos: respuesta,
-      });
-    });
-  }, []);
+  // useEffect(() => {
+  //   // obtenerPokemones();
+  //   pokedexApi(
+  //     segundaaGeneracionFin,
+  //     terceraGeneracionFin - segundaaGeneracionFin
+  //   ).then((respuesta) => {
+  //     setPokedex({
+  //       loading: false,
+  //       datos: respuesta,
+  //     });
+  //   });
+  // }, []);
 
   const generarOpciones = (opcion) => {
-    if (0 == opcion.value) {
+    if (0 === opcion.value) {
      return <option key={opcion.value} onClick={() => elegirgeneracion(opcion.value)} value={opcion.value}>{opcion.label}</option>
     } else {
       return <option key={opcion.value} onClick={() => elegirgeneracion(opcion.value)} value={opcion.value}>{opcion.label}</option>
@@ -60,7 +56,7 @@ export const App = () => {
 
   const elegirgeneracion = (i) => {
     
-    console.log(generacion)
+    //console.log(generacion)
     setGeneracion({
       ubicacion: i,
       datos : [...generacion.datos]
