@@ -33,7 +33,7 @@ function CardPokemon({ ubicacion, datos }) {
   
   return (
     <div>
-      <div className="row row-cols-1 row-cols-md-6 g-4 ">
+      <div className="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 ">
         {pokedex.datos.map((pokemon, index) => (
           <div className="col  cardPokemon"  key={index}>
             <div className="card h-100 pokemon border border-secondary ">

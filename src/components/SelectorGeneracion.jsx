@@ -51,7 +51,7 @@ function SelectorGeneracion(props) {
       <div className="col-12 col-md-6 offset-md-2 d-flex my-4">
         <h1 className="mx-5">Pokedex</h1>
         <select
-          className="form-select col-12 col-md-6 offset-md-1"
+          className="form-select "
           id="generaciones"
           aria-label="Default select example"
           apel
