@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { indiceImagen } from "../helpers/imagenPokemon";
 import { pokedexApi } from "../helpers/pokedexApi";
 
 
 function CardPokemon({ ubicacion, datos }) {
-  // const { ubicacion, datos} = generacion
-  //console.log(ubicacion);
+  
   const [pokedex, setPokedex] = useState({
     loading: true,
     datos: [],
@@ -14,7 +14,7 @@ function CardPokemon({ ubicacion, datos }) {
     let empieza;
     let termina;
     if (ubicacion === 1) {
-      empieza = 1;
+      empieza = 0;
       termina = 151;
     } else {
       empieza = datos[ubicacion - 1];
@@ -29,17 +29,7 @@ function CardPokemon({ ubicacion, datos }) {
     });
   }, [pokedex]);
 
-  //console.log(pokedex);
-  const indiceImagen = (index, sum) => {
-    index += sum;
-    if (index < 9) {
-      return "00" + (index + 1);
-    } else if (index < 99) {
-      return "0" + (index + 1);
-    } else {
-      return index + 1;
-    }
-  };
+  
   return (
     <div>
       <div className="row row-cols-1 row-cols-md-6 g-4 ">

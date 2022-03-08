@@ -6,8 +6,8 @@ function Cargando() {
     return (
        
             
-        <div class="overlay-loader">
-        <div class="loader">
+        <div className="overlay-loader">
+        <div className="loader">
             <img src={pokeball}></img>
         </div>
     </div>
