@@ -4,7 +4,6 @@ function SelectorGeneracion(props) {
   const { setGeneracion, generacion } = props;
 
   const options = [
-    { value: 0, label: "Elige una opcion" },
     { value: 1, label: "Primera" },
     { value: 2, label: "Segunda" },
     { value: 3, label: "Tercera" },
@@ -15,33 +14,11 @@ function SelectorGeneracion(props) {
     { value: 8, label: "Octava" },
   ];
 
-  const generarOpciones = (opcion) => {
-    if (0 === opcion.value) {
-      return (
-        <option
-          key={opcion.value}
-          onClick={() => elegirgeneracion(opcion.value)}
-          value={opcion.value}
-        >
-          {opcion.label}
-        </option>
-      );
-    } else {
-      return (
-        <option
-          key={opcion.value}
-          onClick={() => elegirgeneracion(opcion.value)}
-          value={opcion.value}
-        >
-          {opcion.label}
-        </option>
-      );
-    }
-  };
+ 
 
-  const elegirgeneracion = (i) => {
+  const handleChange = (e) => {
     setGeneracion({
-      ubicacion: i,
+      ubicacion: e.target.value,
       datos: [...generacion.datos],
     });
   };
@@ -54,9 +31,21 @@ function SelectorGeneracion(props) {
           className="form-select "
           id="generaciones"
           aria-label="Default select example"
-          apel
+          onChange={handleChange}
+          
         >
-          {options.map((opcion) => generarOpciones(opcion))}
+          <option
+          disabled selected
+        >
+          Elige una opcion
+        </option>
+          {options.map((item) => (
+            <option key={item.value}
+              value={item.value}>
+              {item.label}
+            
+            </option>
+          ))}
         </select>
       </div>
     </div>

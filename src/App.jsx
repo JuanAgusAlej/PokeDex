@@ -18,7 +18,7 @@ export const App = () => {
         setGeneracion={setGeneracion}
         generacion={generacion}
       />
-      {!generacion.ubicacion ? (
+      {generacion.ubicacion ===0 ? (
         <Cargando />
       ) : (
           <CardPokemon ubicacion={generacion.ubicacion}
