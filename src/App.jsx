@@ -1,5 +1,6 @@
 import React, {  useState } from "react";
 import CardPokemon from "./components/CardPokemon";
+import Cargando from "./components/Cargando";
 
 
 
@@ -23,27 +24,7 @@ export const App = () => {
 
   ]
 
-  // let primeraGeneracionFin = 151;
-  // let segundaaGeneracionFin = 251;
-  // let terceraGeneracionFin = 386;
-  // let cuartaGeneracionFin = 493;
-  // let quintaGeneracionFin = 649;
-  // let sextaGeneracionFin = 721;
-  // let septimaGeneracionFin = 809;
-  // let octavaGeneracionFin = 898;
-
-  // useEffect(() => {
-  //   // obtenerPokemones();
-  //   pokedexApi(
-  //     segundaaGeneracionFin,
-  //     terceraGeneracionFin - segundaaGeneracionFin
-  //   ).then((respuesta) => {
-  //     setPokedex({
-  //       loading: false,
-  //       datos: respuesta,
-  //     });
-  //   });
-  // }, []);
+ 
 
   const generarOpciones = (opcion) => {
     if (0 === opcion.value) {
@@ -56,13 +37,11 @@ export const App = () => {
 
   const elegirgeneracion = (i) => {
     
-    //console.log(generacion)
     setGeneracion({
       ubicacion: i,
       datos : [...generacion.datos]
     }
     )
-   // console.log(generacion)
 
   }
 
@@ -85,9 +64,9 @@ export const App = () => {
           
         </div>
       </div>
-      {/* {console.log(generacion)} */}
       {!generacion.ubicacion ? (
-        <h3>Elige una opcion...</h3>
+        <Cargando />
+        // <h3>Elige una opcion...</h3>
       ) : (
           <CardPokemon ubicacion={generacion.ubicacion}
           datos={generacion.datos}
