@@ -21,7 +21,7 @@ Aplicación web que muestra información de Pokemon utilizando la PokeAPI, desar
 1. Clonar el repositorio:
 
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/JuanAgusAlej/PokeDex.git
 cd PokeDex
 ```
 
